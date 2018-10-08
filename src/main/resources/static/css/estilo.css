@@ -1,0 +1,23 @@
+#rodape a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #e9ecef;
+}
+footer#rodape {
+	clear: both;
+    margin-top: 1em;
+}
+footer#rodape p {
+    font-weight: bold;
+    color: #e9ecef;
+    font-size: 0.7em;
+    padding: 1em;
+    margin: 0;
+}
+
+.bottomright {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 35px;
+}

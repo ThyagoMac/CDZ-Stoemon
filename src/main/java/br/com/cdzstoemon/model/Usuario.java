@@ -13,8 +13,36 @@ public class Usuario {
 	private String acc;
 	private String pass;
 	
+	private Personagem personagem;
+	private Armadura armadura;
+	private Qualidades qualidades;
+	private Defeitos defeitos;
 	
 	//Getters and Setters
+	public Armadura getArmadura() {
+		return armadura;
+	}
+	public void setArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
+	public Qualidades getQualidades() {
+		return qualidades;
+	}
+	public void setQualidades(Qualidades qualidades) {
+		this.qualidades = qualidades;
+	}
+	public Defeitos getDefeitos() {
+		return defeitos;
+	}
+	public void setDefeitos(Defeitos defeitos) {
+		this.defeitos = defeitos;
+	}
+	public Personagem getPersonagem() {
+		return personagem;
+	}
+	public void setPersonagem(Personagem personagem) {
+		this.personagem = personagem;
+	}
 	public Integer getId() {
 		return id;
 	}
