@@ -58,7 +58,6 @@ public class UsuarioController {
 		}
 		
 		usuarioService.excluir(usuarioEncontrado);
-		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -69,11 +68,11 @@ public class UsuarioController {
 			)
 		public ResponseEntity<Usuario> alterarUsuario(@RequestBody Usuario usuario){
 		
-		Usuario usuarioEncontrado = usuarioService.buscaPorId(usuario.getId());
-		
-		if (usuarioEncontrado == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+//		Usuario usuarioEncontrado = usuarioService.buscaPorId(usuario.getId());
+//		
+//		if (usuarioEncontrado == null) {
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
 		
 		Usuario usuarioAlterado = usuarioService.alterar(usuario);
 		return new ResponseEntity<>(usuarioAlterado, HttpStatus.OK);

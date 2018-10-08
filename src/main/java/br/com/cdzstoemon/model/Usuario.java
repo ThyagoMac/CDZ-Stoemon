@@ -1,7 +1,13 @@
 package br.com.cdzstoemon.model;
 
-public class Usuario {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Usuario {
+	@Id
+	@GeneratedValue
 	private Integer id;
 	private String acc;
 	private String pass;
