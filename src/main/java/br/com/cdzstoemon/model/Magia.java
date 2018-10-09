@@ -3,6 +3,7 @@ package br.com.cdzstoemon.model;
 public class Magia {
 	
 	private Integer id;
+	private String nome;
 	private Integer nivel;
 	private Integer ip;
 	private Integer ipReducao;
@@ -116,5 +117,11 @@ public class Magia {
 	}
 	public void setMaterializar(Integer materializar) {
 		this.materializar = materializar;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }

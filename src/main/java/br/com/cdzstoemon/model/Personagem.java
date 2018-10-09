@@ -10,8 +10,8 @@ public class Personagem {
 	private Integer nivel;
 	private Integer idade;
 	
-	private Atributos atributos;
-	private Pericias pericias;
+	private Atributos atributos = new Atributos();
+	private Pericias pericias = new Pericias();
 	private Magia magia;
 	
 	

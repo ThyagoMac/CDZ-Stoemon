@@ -18,6 +18,7 @@ public class Atributos {
 	private Integer grupoSocial;
 	private Integer grupoMental;
 	
+	
 	public Integer getForca() {
 		return forca;
 	}

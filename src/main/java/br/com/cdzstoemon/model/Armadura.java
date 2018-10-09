@@ -2,9 +2,11 @@ package br.com.cdzstoemon.model;
 
 public class Armadura {
 	
-	private Atributos atributos;
-	private Pericias pericias;
-	private Magia magia;
+	private Atributos atributos= new Atributos();
+	private Pericias pericias = new Pericias();
+	private Magia magia = new Magia();
+	
+	
 	
 	
 	public Atributos getAtributos() {
@@ -25,7 +27,5 @@ public class Armadura {
 	public void setMagia(Magia magia) {
 		this.magia = magia;
 	}
-	
-	
 	
 }
