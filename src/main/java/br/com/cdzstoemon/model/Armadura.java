@@ -1,31 +1,46 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 public class Armadura {
 	
-	private Atributos atributos= new Atributos();
-	private Pericias pericias = new Pericias();
-	private Magia magia = new Magia();
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
+	@ManyToOne
+	private Personagem personagem;
+	@ManyToMany
+	private Qualidades qualidade;
+	@ManyToMany
+	private Defeitos defeito;
 	
-	
-	
-	public Atributos getAtributos() {
-		return atributos;
+	public Integer getId() {
+		return id;
 	}
-	public void setAtributos(Atributos atributos) {
-		this.atributos = atributos;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public Pericias getPericias() {
-		return pericias;
+	public Personagem getPersonagem() {
+		return personagem;
 	}
-	public void setPericias(Pericias pericias) {
-		this.pericias = pericias;
+	public void setPersonagem(Personagem personagem) {
+		this.personagem = personagem;
 	}
-	public Magia getMagia() {
-		return magia;
+	public Qualidades getQualidade() {
+		return qualidade;
 	}
-	public void setMagia(Magia magia) {
-		this.magia = magia;
+	public void setQualidade(Qualidades qualidade) {
+		this.qualidade = qualidade;
+	}
+	public Defeitos getDefeito() {
+		return defeito;
+	}
+	public void setDefeito(Defeitos defeito) {
+		this.defeito = defeito;
 	}
 	
 }

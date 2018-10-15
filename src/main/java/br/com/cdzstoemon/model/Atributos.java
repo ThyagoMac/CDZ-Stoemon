@@ -1,7 +1,26 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 public class Atributos {
 
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
+	@OneToOne
+	private Personagem personagem;
+	@OneToOne
+	private Armadura armadura;
+	@OneToOne
+	private Defeitos defeito;
+	@OneToOne
+	private Qualidades qualidade;
+	@OneToOne
+	private Magia magia;
+	
 	private Integer forca;
 	private Integer agilidade;
 	private Integer vigor;
@@ -19,6 +38,44 @@ public class Atributos {
 	private Integer grupoMental;
 	
 	
+	
+
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Personagem getPersonagem() {
+		return personagem;
+	}
+	public void setPersonagem(Personagem personagem) {
+		this.personagem = personagem;
+	}
+	public Armadura getArmadura() {
+		return armadura;
+	}
+	public void setArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
+	public Defeitos getDefeito() {
+		return defeito;
+	}
+	public void setDefeito(Defeitos defeito) {
+		this.defeito = defeito;
+	}
+	public Qualidades getQualidade() {
+		return qualidade;
+	}
+	public void setQualidade(Qualidades qualidade) {
+		this.qualidade = qualidade;
+	}
+	public Magia getMagia() {
+		return magia;
+	}
+	public void setMagia(Magia magia) {
+		this.magia = magia;
+	}
 	public Integer getForca() {
 		return forca;
 	}

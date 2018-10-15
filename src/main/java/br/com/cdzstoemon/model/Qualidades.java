@@ -1,34 +1,25 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 public class Qualidades {
 
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private String nome;
-	private Atributos atributos = new Atributos();
-	private Pericias pericias = new Pericias();
-	private Magia magia = new Magia();
 
-	public Atributos getAtributos() {
-		return atributos;
+	@ManyToMany
+	private Personagem personagem;
+
+	public Integer getId() {
+		return id;
 	}
 
-	public void setAtributos(Atributos atributos) {
-		this.atributos = atributos;
-	}
-
-	public Pericias getPericias() {
-		return pericias;
-	}
-
-	public void setPericias(Pericias pericias) {
-		this.pericias = pericias;
-	}
-
-	public Magia getMagia() {
-		return magia;
-	}
-
-	public void setMagia(Magia magia) {
-		this.magia = magia;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -39,4 +30,11 @@ public class Qualidades {
 		this.nome = nome;
 	}
 
+	public Personagem getPersonagem() {
+		return personagem;
+	}
+
+	public void setPersonagem(Personagem personagem) {
+		this.personagem = personagem;
+	}
 }

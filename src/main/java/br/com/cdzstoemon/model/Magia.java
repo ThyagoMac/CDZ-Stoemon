@@ -1,8 +1,15 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 public class Magia {
 	
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
 	private String nome;
 	private Integer nivel;
 	private Integer ip;
@@ -20,8 +27,24 @@ public class Magia {
 	private Integer queimaEnergia;
 	private Integer materializar;
 	
+	@ManyToMany
+	private Personagem personagem;
+	@ManyToMany
+	private Armadura armadura;
 	
 	
+	public Personagem getPersonagem() {
+		return personagem;
+	}
+	public void setPersonagem(Personagem personagem) {
+		this.personagem = personagem;
+	}
+	public Armadura getArmadura() {
+		return armadura;
+	}
+	public void setArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -1,40 +1,33 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Personagem {
 	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	private String nome;
 	private String sexo;
-	private String classe;
+	
+	@Enumerated
+	private OpcoesClasses classe;
+	
 	private Integer nivel;
 	private Integer idade;
 	
-	private Atributos atributos = new Atributos();
-	private Pericias pericias = new Pericias();
-	private Magia magia;
-	
+	@ManyToOne
+	@JoinColumn(name="id_usuario")
+	private Usuario usuario;
 	
 	public Integer getId() {
 		return id;
-	}
-	public Atributos getAtributos() {
-		return atributos;
-	}
-	public void setAtributos(Atributos atributos) {
-		this.atributos = atributos;
-	}
-	public Pericias getPericias() {
-		return pericias;
-	}
-	public void setPericias(Pericias pericias) {
-		this.pericias = pericias;
-	}
-	public Magia getMagia() {
-		return magia;
-	}
-	public void setMagia(Magia magia) {
-		this.magia = magia;
 	}
 	public void setId(Integer id) {
 		this.id = id;
@@ -51,12 +44,6 @@ public class Personagem {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	public String getClasse() {
-		return classe;
-	}
-	public void setClasse(String classe) {
-		this.classe = classe;
-	}
 	public Integer getNivel() {
 		return nivel;
 	}
@@ -68,6 +55,18 @@ public class Personagem {
 	}
 	public void setIdade(Integer idade) {
 		this.idade = idade;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public OpcoesClasses getClasse() {
+		return classe;
+	}
+	public void setClasse(OpcoesClasses classe) {
+		this.classe = classe;
 	}
 	
 	

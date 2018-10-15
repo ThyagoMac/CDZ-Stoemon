@@ -1,19 +1,67 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 public class Pericias {
 
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private Integer esportes;
 	private Integer intimidacao;
 	private Integer furtividade;
 	private Integer sobrevivencia;
 	private Integer conducao;
 	private Integer punga;
-	
 	private Integer etiqueta;
 	private Integer expressao;
 	private Integer labia;
 	private Integer manha;
 	
+	@OneToOne
+	private Personagem personagem;
+	@OneToOne
+	private Armadura armadura;
+	@OneToOne
+	private Defeitos defeito;
+	@OneToOne
+	private Qualidades qualidade;
+	@OneToOne
+	private Magia magia;
+	
+	
+	public Personagem getPersonagem() {
+		return personagem;
+	}
+	public void setPersonagem(Personagem personagem) {
+		this.personagem = personagem;
+	}
+	public Armadura getArmadura() {
+		return armadura;
+	}
+	public void setArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
+	public Defeitos getDefeito() {
+		return defeito;
+	}
+	public void setDefeito(Defeitos defeito) {
+		this.defeito = defeito;
+	}
+	public Qualidades getQualidade() {
+		return qualidade;
+	}
+	public void setQualidade(Qualidades qualidade) {
+		this.qualidade = qualidade;
+	}
+	public Magia getMagia() {
+		return magia;
+	}
+	public void setMagia(Magia magia) {
+		this.magia = magia;
+	}
 	public Integer getEsportes() {
 		return esportes;
 	}

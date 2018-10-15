@@ -1,11 +1,16 @@
 package br.com.cdzstoemon.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 //classe Jpa (Hibernate)
 @Entity
+@Table(name="usuario")
 public class Usuario {
 	@Id
 	@GeneratedValue
@@ -13,36 +18,9 @@ public class Usuario {
 	private String acc;
 	private String pass;
 	
-	private Personagem personagem;
-	private Armadura armadura;
-	private Qualidades qualidades;
-	private Defeitos defeitos;
+	@OneToMany(mappedBy="usuario")
+	private List<Personagem> personagens;
 	
-	//Getters and Setters
-	public Armadura getArmadura() {
-		return armadura;
-	}
-	public void setArmadura(Armadura armadura) {
-		this.armadura = armadura;
-	}
-	public Qualidades getQualidades() {
-		return qualidades;
-	}
-	public void setQualidades(Qualidades qualidades) {
-		this.qualidades = qualidades;
-	}
-	public Defeitos getDefeitos() {
-		return defeitos;
-	}
-	public void setDefeitos(Defeitos defeitos) {
-		this.defeitos = defeitos;
-	}
-	public Personagem getPersonagem() {
-		return personagem;
-	}
-	public void setPersonagem(Personagem personagem) {
-		this.personagem = personagem;
-	}
 	public Integer getId() {
 		return id;
 	}
@@ -61,6 +39,11 @@ public class Usuario {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
+	public List<Personagem> getPersonagens() {
+		return personagens;
+	}
+	public void setPersonagens(List<Personagem> personagens) {
+		this.personagens = personagens;
+	}
 	
 }
