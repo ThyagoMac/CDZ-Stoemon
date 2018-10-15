@@ -10,6 +10,7 @@ public class Armadura {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	private String nome;
 	
 	@ManyToOne
 	private Personagem personagem;
@@ -41,6 +42,12 @@ public class Armadura {
 	}
 	public void setDefeito(Defeitos defeito) {
 		this.defeito = defeito;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }
