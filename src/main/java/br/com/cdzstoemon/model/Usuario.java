@@ -21,6 +21,7 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	private List<Personagem> personagens;
 
+	
 	public Integer getId() {
 		return id;
 	}

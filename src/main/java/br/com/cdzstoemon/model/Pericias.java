@@ -1,10 +1,14 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "pericias")
 public class Pericias {
 
 	@Id
@@ -21,21 +25,36 @@ public class Pericias {
 	private Integer labia;
 	private Integer manha;
 
-	@JoinColumn(unique = true)
+
+	@JoinColumn(name = "id_personagem")
 	@OneToOne
 	private Personagem personagem;
-	@JoinColumn(unique = true)
+	
+	@JoinColumn(name = "id_armadura")
 	@OneToOne
 	private Armadura armadura;
-	@JoinColumn(unique = true)
+	
+	@JoinColumn(name = "id_defeitos")
 	@OneToOne
 	private Defeitos defeito;
-	@JoinColumn(unique = true)
+	
+	@JoinColumn(name = "id_qualidades")
 	@OneToOne
 	private Qualidades qualidade;
-	@JoinColumn(unique = true)
+
+	@JoinColumn(name = "id_magia")
 	@OneToOne
 	private Magia magia;
+
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Personagem getPersonagem() {
 		return personagem;

@@ -1,9 +1,16 @@
 package br.com.cdzstoemon.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "magia")
 public class Magia {
 	
 	@Id
@@ -28,22 +35,39 @@ public class Magia {
 	private Integer materializar;
 	
 	@ManyToMany
-	private Personagem personagem;
+	private List<Personagem> personagens;
 	@ManyToMany
-	private Armadura armadura;
+	private List<Armadura> armadura;
+	
+	@OneToOne
+	private Atributos atributo;
+	@OneToOne
+	private Pericias pericia;
 	
 	
-	public Personagem getPersonagem() {
-		return personagem;
+	public List<Personagem> getPersonagens() {
+		return personagens;
 	}
-	public void setPersonagem(Personagem personagem) {
-		this.personagem = personagem;
+	public void setPersonagens(List<Personagem> personagens) {
+		this.personagens = personagens;
 	}
-	public Armadura getArmadura() {
+	public List<Armadura> getArmadura() {
 		return armadura;
 	}
-	public void setArmadura(Armadura armadura) {
+	public void setArmadura(List<Armadura> armadura) {
 		this.armadura = armadura;
+	}
+	public Atributos getAtributo() {
+		return atributo;
+	}
+	public void setAtributo(Atributos atributo) {
+		this.atributo = atributo;
+	}
+	public Pericias getPericia() {
+		return pericia;
+	}
+	public void setPericia(Pericias pericia) {
+		this.pericia = pericia;
 	}
 	public Integer getId() {
 		return id;

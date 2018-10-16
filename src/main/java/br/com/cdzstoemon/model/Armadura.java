@@ -1,10 +1,17 @@
 package br.com.cdzstoemon.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "armadura")
 public class Armadura {
 	
 	@Id
@@ -14,10 +21,18 @@ public class Armadura {
 	
 	@ManyToOne
 	private Personagem personagem;
+	
 	@ManyToMany
-	private Qualidades qualidade;
+	private List<Qualidades> qualidade;
 	@ManyToMany
-	private Defeitos defeito;
+	private List<Defeitos> defeito;
+	@ManyToMany
+	private List<Magia> magia;
+	
+	@OneToOne
+	private Atributos atributo;
+	@OneToOne
+	private Pericias pericia;
 	
 	public Integer getId() {
 		return id;
@@ -31,23 +46,42 @@ public class Armadura {
 	public void setPersonagem(Personagem personagem) {
 		this.personagem = personagem;
 	}
-	public Qualidades getQualidade() {
-		return qualidade;
-	}
-	public void setQualidade(Qualidades qualidade) {
-		this.qualidade = qualidade;
-	}
-	public Defeitos getDefeito() {
-		return defeito;
-	}
-	public void setDefeito(Defeitos defeito) {
-		this.defeito = defeito;
-	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<Qualidades> getQualidade() {
+		return qualidade;
+	}
+	public void setQualidade(List<Qualidades> qualidade) {
+		this.qualidade = qualidade;
+	}
+	public List<Defeitos> getDefeito() {
+		return defeito;
+	}
+	public void setDefeito(List<Defeitos> defeito) {
+		this.defeito = defeito;
+	}
+	public List<Magia> getMagia() {
+		return magia;
+	}
+	public void setMagia(List<Magia> magia) {
+		this.magia = magia;
+	}
+	public Atributos getAtributo() {
+		return atributo;
+	}
+	public void setAtributo(Atributos atributo) {
+		this.atributo = atributo;
+	}
+	public Pericias getPericia() {
+		return pericia;
+	}
+	public void setPericia(Pericias pericia) {
+		this.pericia = pericia;
 	}
 	
 }

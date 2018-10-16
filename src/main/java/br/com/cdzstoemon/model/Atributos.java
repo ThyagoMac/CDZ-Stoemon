@@ -1,29 +1,37 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "atributos")
 public class Atributos {
 
 	@Id
 	@GeneratedValue
 	private Integer id;
 
-	@JoinColumn(unique = true)
+	@JoinColumn(name = "id_personagem")
 	@OneToOne
 	private Personagem personagem;
-	@JoinColumn(unique = true)
+	
+	@JoinColumn(name = "id_armadura")
 	@OneToOne
 	private Armadura armadura;
-	@JoinColumn(unique = true)
+	
+	@JoinColumn(name = "id_defeitos")
 	@OneToOne
 	private Defeitos defeito;
-	@JoinColumn(unique = true)
+	
+	@JoinColumn(name = "id_qualidades")
 	@OneToOne
 	private Qualidades qualidade;
-	@JoinColumn(unique = true)
+
+	@JoinColumn(name = "id_magia")
 	@OneToOne
 	private Magia magia;
 
@@ -43,6 +51,7 @@ public class Atributos {
 	private Integer grupoSocial;
 	private Integer grupoMental;
 
+	
 	public Integer getId() {
 		return id;
 	}
