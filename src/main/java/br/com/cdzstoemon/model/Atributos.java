@@ -3,8 +3,6 @@ package br.com.cdzstoemon.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,28 +11,7 @@ public class Atributos {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
-
-	@JoinColumn(name = "id_personagem")
-	@OneToOne
-	private Personagem personagem;
-	
-	@JoinColumn(name = "id_armadura")
-	@OneToOne
-	private Armadura armadura;
-	
-	@JoinColumn(name = "id_defeitos")
-	@OneToOne
-	private Defeitos defeito;
-	
-	@JoinColumn(name = "id_qualidades")
-	@OneToOne
-	private Qualidades qualidade;
-
-	@JoinColumn(name = "id_magia")
-	@OneToOne
-	private Magia magia;
-
+	private Integer id_atributos;
 	private Integer forca;
 	private Integer agilidade;
 	private Integer vigor;
@@ -52,52 +29,12 @@ public class Atributos {
 	private Integer grupoMental;
 
 	
-	public Integer getId() {
-		return id;
+	public Integer getId_atributos() {
+		return id_atributos;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Personagem getPersonagem() {
-		return personagem;
-	}
-
-	public void setPersonagem(Personagem personagem) {
-		this.personagem = personagem;
-	}
-
-	public Armadura getArmadura() {
-		return armadura;
-	}
-
-	public void setArmadura(Armadura armadura) {
-		this.armadura = armadura;
-	}
-
-	public Defeitos getDefeito() {
-		return defeito;
-	}
-
-	public void setDefeito(Defeitos defeito) {
-		this.defeito = defeito;
-	}
-
-	public Qualidades getQualidade() {
-		return qualidade;
-	}
-
-	public void setQualidade(Qualidades qualidade) {
-		this.qualidade = qualidade;
-	}
-
-	public Magia getMagia() {
-		return magia;
-	}
-
-	public void setMagia(Magia magia) {
-		this.magia = magia;
+	public void setId_atributos(Integer id_atributos) {
+		this.id_atributos = id_atributos;
 	}
 
 	public Integer getForca() {

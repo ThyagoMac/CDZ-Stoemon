@@ -9,6 +9,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ForeignKey;
+
 @Entity
 @Table(name = "qualidades")
 public class Qualidades {
@@ -17,17 +19,17 @@ public class Qualidades {
 	@GeneratedValue
 	private Integer id;
 	private String nome;
+	
 
 	@ManyToMany
 	private List<Personagem> personagem;
 	@ManyToMany
 	private List<Armadura> armadura;
-	
+
 	@OneToOne
 	private Atributos atributo;
 	@OneToOne
 	private Pericias pericia;
-	
 
 	public List<Personagem> getPersonagem() {
 		return personagem;
@@ -77,5 +79,4 @@ public class Qualidades {
 		this.nome = nome;
 	}
 
-	
 }

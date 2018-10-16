@@ -19,7 +19,7 @@ public class Personagem {
 	
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer id_personagem;
 	private String nome;
 	private String sexo;
 	private Integer nivel;
@@ -28,16 +28,20 @@ public class Personagem {
 	@Enumerated
 	private OpcoesClasses classe;
 	
+	//JoinColumn indicates entity is the owner of the relationship
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "personagem")
 	private List<Armadura> armadura;
 	
 	@OneToOne
+	@JoinColumn(name="id_atributos")
 	private Atributos atributo;
+	
 	@OneToOne
+	@JoinColumn(name="id_pericias")
 	private Pericias pericia;
 	
 	@ManyToMany
@@ -85,11 +89,12 @@ public class Personagem {
 	public void setDefeito(List<Defeitos> defeito) {
 		this.defeito = defeito;
 	}
-	public Integer getId() {
-		return id;
+
+	public Integer getId_personagem() {
+		return id_personagem;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId_personagem(Integer id_personagem) {
+		this.id_personagem = id_personagem;
 	}
 	public String getNome() {
 		return nome;

@@ -18,6 +18,7 @@ public class Usuario {
 	private String acc;
 	private String pass;
 
+	//mappedBy indicates his owner resides in other entity
 	@OneToMany(mappedBy = "usuario")
 	private List<Personagem> personagens;
 
