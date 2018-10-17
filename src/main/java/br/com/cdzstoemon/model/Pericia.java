@@ -1,5 +1,6 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,11 +9,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pericias")
-public class Pericias {
+@Table(name = "pericia")
+public class Pericia {
 
 	@Id
 	@GeneratedValue
+	@Column(name="id_pericia")
 	private Integer id;
 	private Integer esportes;
 	private Integer intimidacao;
@@ -34,13 +36,9 @@ public class Pericias {
 	@OneToOne
 	private Armadura armadura;
 	
-	@JoinColumn(name = "id_defeitos")
-	@OneToOne
-	private Defeitos defeito;
-	
 	@JoinColumn(name = "id_qualidades")
 	@OneToOne
-	private Qualidades qualidade;
+	private Qualidade qualidade;
 
 	@JoinColumn(name = "id_magia")
 	@OneToOne
@@ -72,19 +70,11 @@ public class Pericias {
 		this.armadura = armadura;
 	}
 
-	public Defeitos getDefeito() {
-		return defeito;
-	}
-
-	public void setDefeito(Defeitos defeito) {
-		this.defeito = defeito;
-	}
-
-	public Qualidades getQualidade() {
+	public Qualidade getQualidade() {
 		return qualidade;
 	}
 
-	public void setQualidade(Qualidades qualidade) {
+	public void setQualidade(Qualidade qualidade) {
 		this.qualidade = qualidade;
 	}
 

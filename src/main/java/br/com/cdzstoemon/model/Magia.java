@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,14 +35,20 @@ public class Magia {
 	private Integer materializar;
 
 	@ManyToMany
+	@JoinColumn(name = "id_personagem")
 	private List<Personagem> personagens;
+	
 	@ManyToMany
+	@JoinColumn(name = "id_armadura")
 	private List<Armadura> armadura;
 
 	@OneToOne
-	private Atributos atributo;
+	@JoinColumn(name = "id_atributos")
+	private Atributo atributo;
+
 	@OneToOne
-	private Pericias pericia;
+	@JoinColumn(name = "id_pericias")
+	private Pericia pericia;
 
 	public List<Personagem> getPersonagens() {
 		return personagens;
@@ -59,19 +66,19 @@ public class Magia {
 		this.armadura = armadura;
 	}
 
-	public Atributos getAtributo() {
+	public Atributo getAtributo() {
 		return atributo;
 	}
 
-	public void setAtributo(Atributos atributo) {
+	public void setAtributo(Atributo atributo) {
 		this.atributo = atributo;
 	}
 
-	public Pericias getPericia() {
+	public Pericia getPericia() {
 		return pericia;
 	}
 
-	public void setPericia(Pericias pericia) {
+	public void setPericia(Pericia pericia) {
 		this.pericia = pericia;
 	}
 

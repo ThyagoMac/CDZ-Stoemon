@@ -1,35 +1,51 @@
 package br.com.cdzstoemon.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ForeignKey;
-
 @Entity
-@Table(name = "qualidades")
-public class Qualidades {
+@Table(name = "qualidade")
+public class Qualidade implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
+	@Column(name="id_qualidade")
 	private Integer id;
+	
+	@Column(name="nome")
 	private String nome;
 	
+	@Enumerated(EnumType.STRING)
+	private OpcoesCaracteristica caracteristica;
 
 	@ManyToMany
+	@JoinColumn(name = "id_personagem")
 	private List<Personagem> personagem;
+	
 	@ManyToMany
+	@JoinColumn(name = "id_armadura")
 	private List<Armadura> armadura;
 
 	@OneToOne
-	private Atributos atributo;
+	@JoinColumn(name = "id_atributos")
+	private Atributo atributo;
+
 	@OneToOne
-	private Pericias pericia;
+	@JoinColumn(name = "id_pericias")
+	private Pericia pericia;
 
 	public List<Personagem> getPersonagem() {
 		return personagem;
@@ -47,19 +63,19 @@ public class Qualidades {
 		this.armadura = armadura;
 	}
 
-	public Atributos getAtributo() {
+	public Atributo getAtributo() {
 		return atributo;
 	}
 
-	public void setAtributo(Atributos atributo) {
+	public void setAtributo(Atributo atributo) {
 		this.atributo = atributo;
 	}
 
-	public Pericias getPericia() {
+	public Pericia getPericia() {
 		return pericia;
 	}
 
-	public void setPericia(Pericias pericia) {
+	public void setPericia(Pericia pericia) {
 		this.pericia = pericia;
 	}
 

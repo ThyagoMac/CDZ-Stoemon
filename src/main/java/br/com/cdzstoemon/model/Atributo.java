@@ -1,5 +1,6 @@
 package br.com.cdzstoemon.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,11 +8,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "atributos")
-public class Atributos {
+public class Atributo {
 
 	@Id
 	@GeneratedValue
-	private Integer id_atributos;
+	@Column(name="id_atributo")
+	private Integer id;
 	private Integer forca;
 	private Integer agilidade;
 	private Integer vigor;
@@ -30,11 +32,11 @@ public class Atributos {
 
 	
 	public Integer getId_atributos() {
-		return id_atributos;
+		return id;
 	}
 
 	public void setId_atributos(Integer id_atributos) {
-		this.id_atributos = id_atributos;
+		this.id = id_atributos;
 	}
 
 	public Integer getForca() {

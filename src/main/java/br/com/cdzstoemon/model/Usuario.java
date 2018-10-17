@@ -14,21 +14,21 @@ import javax.persistence.Table;
 public class Usuario {
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer id_usuario;
 	private String acc;
 	private String pass;
 
-	//mappedBy indicates his owner resides in other entity
+	//@OneToMany(mappedBy = "usuario") >>--> mappedBy indicates his owner resides in other entity
 	@OneToMany(mappedBy = "usuario")
 	private List<Personagem> personagens;
 
 	
 	public Integer getId() {
-		return id;
+		return id_usuario;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
 	public String getAcc() {
