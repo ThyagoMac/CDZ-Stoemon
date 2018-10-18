@@ -14,10 +14,6 @@ public class UsuarioService {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
-	
-	
-	
-	
 //	private Map<Integer, Usuario> usuarios = new HashMap<>();
 //	private Integer proximoId=1;
 	//regras de negocio

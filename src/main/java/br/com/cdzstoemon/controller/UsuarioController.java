@@ -22,14 +22,14 @@ public class UsuarioController {
 	UsuarioService usuarioService;
 
 	// endpoints
-	@RequestMapping(method = RequestMethod.POST, value = "/usuarios", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "/usuario", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
 
 		Usuario usuarioCadastrado = usuarioService.cadastrar(usuario);
 		return new ResponseEntity<>(usuarioCadastrado, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/usuarios", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, value = "/usuario", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<Usuario>> buscarTodosUsuarios() {
 
 		Collection<Usuario> usuariosBuscados = usuarioService.buscarTodos();
@@ -37,7 +37,7 @@ public class UsuarioController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/usuarios/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/usuario/{id}")
 	public ResponseEntity<Usuario> excluirUsuario(@PathVariable Integer id) {
 
 		Usuario usuarioEncontrado = usuarioService.buscaPorId(id);
@@ -50,7 +50,7 @@ public class UsuarioController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/usuarios", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.PUT, value = "/usuario", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Usuario> alterarUsuario(@RequestBody Usuario usuario) {
 
 		Usuario usuarioEncontrado = usuarioService.buscaPorId(usuario.getId());

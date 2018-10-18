@@ -2,9 +2,11 @@ package br.com.cdzstoemon.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -18,8 +20,9 @@ import javax.persistence.Table;
 public class Personagem {
 
 	@Id
-	@GeneratedValue
-	private Integer id_personagem;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_personagem")
+	private Integer id;
 	private String nome;
 	private String sexo;
 	private Integer nivel;
@@ -91,11 +94,11 @@ public class Personagem {
 	}
 
 	public Integer getId_personagem() {
-		return id_personagem;
+		return id;
 	}
 
 	public void setId_personagem(Integer id_personagem) {
-		this.id_personagem = id_personagem;
+		this.id = id_personagem;
 	}
 
 	public String getNome() {

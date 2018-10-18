@@ -1,20 +1,30 @@
 package br.com.cdzstoemon.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 //classe Jpa (Hibernate)
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Usuario implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
-	@GeneratedValue
-	private Integer id_usuario;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_usuario")
+	private Integer id;
 	private String acc;
 	private String pass;
 
@@ -24,11 +34,11 @@ public class Usuario {
 
 	
 	public Integer getId() {
-		return id_usuario;
+		return id;
 	}
 
 	public void setId(Integer id_usuario) {
-		this.id_usuario = id_usuario;
+		this.id = id_usuario;
 	}
 
 	public String getAcc() {
