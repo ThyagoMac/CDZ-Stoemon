@@ -15,8 +15,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "qualidade")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Qualidade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
