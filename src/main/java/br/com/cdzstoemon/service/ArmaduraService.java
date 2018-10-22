@@ -29,10 +29,8 @@ public class ArmaduraService {
 	public Armadura buscaPorId(Integer id) {
 		return armaduraRepository.getOne(id);
 	}
-	
+
 	public Armadura alterar(Armadura armadura) {
 		return armaduraRepository.save(armadura);
 	}
-	
-
 }

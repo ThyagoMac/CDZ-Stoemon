@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class Personagem {
 	private Integer nivel;
 	private Integer idade;
 
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private OpcoesClasses classe;
 
 	// JoinColumn indicates entity is the owner of the relationship
@@ -96,12 +97,12 @@ public class Personagem {
 		this.qualidade = qualidade;
 	}
 
-	public Integer getId_personagem() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId_personagem(Integer id_personagem) {
-		this.id = id_personagem;
+	public void setId_personagem(Integer id) {
+		this.id = id;
 	}
 
 	public String getNome() {

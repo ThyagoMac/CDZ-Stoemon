@@ -20,7 +20,7 @@ public class Magia {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id_magia;
+	private Integer id;
 	private String nome;
 	private Integer nivel;
 	private Integer ip;
@@ -86,12 +86,12 @@ public class Magia {
 		this.pericia = pericia;
 	}
 
-	public Integer getId_magia() {
-		return id_magia;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setId_magia(Integer id_magia) {
-		this.id_magia = id_magia;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getNivel() {

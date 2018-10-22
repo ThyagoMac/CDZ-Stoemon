@@ -52,7 +52,7 @@ public class PersonagemController {
 	@RequestMapping(method = RequestMethod.PUT, value = "/personagem", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Personagem> alterarPersonagem(@RequestBody Personagem personagem) {
 
-		Personagem personagemEncontrado = personagemService.buscaPorId(personagem.getId_personagem());
+		Personagem personagemEncontrado = personagemService.buscaPorId(personagem.getId());
 		if (personagemEncontrado == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
