@@ -7,11 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -39,9 +41,11 @@ public class Qualidade implements Serializable {
 	@JoinColumn(name = "id_personagem")
 	private List<Personagem> personagem;
 	
-	@ManyToMany
-	@JoinColumn(name = "id_armadura")
-	private List<Armadura> armadura;
+//	@ManyToMany
+//	@JoinColumn(name = "id_armadura")
+//	private List<Armadura> armadura;
+	@OneToMany(mappedBy = "qualidade", fetch=FetchType.LAZY)
+	private List<ArmaduraQualidade> qualidadeArmaduras;
 
 	@OneToOne
 	@JoinColumn(name = "id_atributos")
@@ -59,12 +63,12 @@ public class Qualidade implements Serializable {
 		this.personagem = personagem;
 	}
 
-	public List<Armadura> getArmadura() {
-		return armadura;
+	public List<ArmaduraQualidade> getQualidadeArmaduras() {
+		return qualidadeArmaduras;
 	}
 
-	public void setArmadura(List<Armadura> armadura) {
-		this.armadura = armadura;
+	public void setQualidadeArmaduras(List<ArmaduraQualidade> qualidadeArmaduras) {
+		this.qualidadeArmaduras = qualidadeArmaduras;
 	}
 
 	public Atributo getAtributo() {
@@ -97,6 +101,14 @@ public class Qualidade implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public OpcoesCaracteristica getCaracteristica() {
+		return caracteristica;
+	}
+
+	public void setCaracteristica(OpcoesCaracteristica caracteristica) {
+		this.caracteristica = caracteristica;
 	}
 
 }

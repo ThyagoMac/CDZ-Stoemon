@@ -49,6 +49,7 @@ public class Personagem {
 	private Pericia pericia;
 
 	@OneToMany
+	
 	private List<Armadura> armadura;
 
 	@ManyToMany

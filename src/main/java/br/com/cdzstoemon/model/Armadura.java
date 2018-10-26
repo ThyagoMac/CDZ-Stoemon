@@ -5,15 +5,16 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,10 +30,11 @@ public class Armadura implements Serializable {
 	@Column(name="id_armadura")
 	private Integer id;
 	
+	@Column(name="nome")
 	private String nome;
 
 	@ManyToOne
-	//@JoinColumn(name = "id_personagem", referencedColumnName="id") <--<< muda a coluna referenciada quando o nome for diferente
+//@JoinColumn(name = "id_personagem", referencedColumnName="id") <--<< muda a coluna referenciada quando o nome for diferente
 	@JoinColumn(name = "id_personagem") 
 	private Personagem personagem;
 
@@ -47,11 +49,11 @@ public class Armadura implements Serializable {
 //	@ManyToMany
 //	private List<Qualidade> qualidade;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="armadura")
 	private List<Magia> magia;
 	
-	@Transient
-//	@OneToMany(mappedBy="armadura", fetch=FetchType.LAZY)
+//	@Transient
+	@OneToMany(mappedBy="armadura", fetch=FetchType.LAZY)
 	private List<ArmaduraQualidade> armaduraQualidades;
 
 	public Personagem getPersonagem() {

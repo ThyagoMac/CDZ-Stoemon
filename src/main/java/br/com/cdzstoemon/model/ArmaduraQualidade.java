@@ -5,21 +5,24 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="armadura_qualidade")
-public class ArmaduraQualidade implements Serializable{
+@Table(name = "armadura_qualidade")
+public class ArmaduraQualidade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private ArmaduraQualidadeId id;
-	
-	@JoinColumn(name="id_armadura", insertable=false, updatable=false)
+
+	@ManyToOne
+	@JoinColumn(name = "id_armadura", insertable = false, updatable = false)
 	private Armadura armadura;
-	
-	@JoinColumn(name="id_qualidade", insertable=false, updatable=false)
+
+	@ManyToOne
+	@JoinColumn(name = "id_qualidade", insertable = false, updatable = false)
 	private Qualidade qualidade;
 
 	public ArmaduraQualidadeId getId() {
@@ -69,6 +72,6 @@ public class ArmaduraQualidade implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	} 
-	
+	}
+
 }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.ForeignKey;
 
 @Embeddable
 public class ArmaduraQualidadeId implements Serializable {
