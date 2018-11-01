@@ -49,7 +49,6 @@ public class Personagem {
 	private Pericia pericia;
 
 	@OneToMany
-	
 	private List<Armadura> armadura;
 
 	@ManyToMany
@@ -58,6 +57,9 @@ public class Personagem {
 	@ManyToMany
 	private List<Qualidade> qualidade;
 
+	
+	
+	
 	public List<Armadura> getArmadura() {
 		return armadura;
 	}
